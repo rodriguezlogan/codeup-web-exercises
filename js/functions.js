@@ -21,7 +21,7 @@ function sayHello(x){
  * console.log 'helloMessage' to check your work
  */
 
-var myName = "Logan";
+var myName = prompt("What's your name?");
 var helloMessage = sayHello(myName);
 console.log(helloMessage);
 
