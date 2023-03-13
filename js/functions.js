@@ -10,7 +10,7 @@
  */
 
 function sayHello(x){
-    return("Hello, " + x + ".");
+    return("Hello, " + x + "!");
 }
 
 /**
