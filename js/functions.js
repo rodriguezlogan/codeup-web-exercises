@@ -58,9 +58,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(x){
-    if(x === 2)
-        return true;
-    return false;
+    return (x===2);
 }
 console.log(isTwo(random));
 
@@ -87,10 +85,11 @@ function calculateTip(x,y){
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+/*
 var bill = prompt("What was the bill amount?");
 var tipPercent = prompt("What percent would you like to tip?");
 alert("You should tip " + calculateTip(tipPercent,bill));
-
+*/
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
