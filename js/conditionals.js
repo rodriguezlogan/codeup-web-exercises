@@ -135,8 +135,10 @@ alert(analyzeColor(userColor))
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
 var bill = prompt("What was your total bill?");
-var discount = calculateTotal(luckyNumber, bill);
-alert("Your total today will be " + discount);
+//var discount = calculateTotal(luckyNumber, bill);
+alert("Your lucky number was: " + luckyNumber);
+alert("Your total before discount was: " + bill);
+alert("Your total today will be " + calculateTotal(luckyNumber, bill));
 
 
 /**
@@ -157,10 +159,15 @@ alert("Your total today will be " + discount);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+function even(x){
+    return (x%2 === 0);
+}
+
+
 if (confirm("Would you like to enter a number?")) {
     var userNum = +prompt("Enter number: ");
-    if(userNum * 0 === 0) { //checks if the number is not text
-        if (userNum % 2 === 0)
+    if(parseInt(userNum)=== userNum) { //checks if the number is not text
+        if (even(userNum))
             alert("Your number is even");
         else
             alert("Your number is odd");
