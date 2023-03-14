@@ -20,9 +20,7 @@ function sayHello(name){
  *
  * console.log 'helloMessage' to check your work
  */
-
-var myName = prompt("What's your name?");
-var helloMessage = sayHello(myName);
+var helloMessage = sayHello("Logan");
 console.log(helloMessage);
 
 /**
