@@ -30,7 +30,8 @@ console.log(helloMessage);
  * console.
  */
 
-
+var myName = "Logan";
+console.log(sayHello(myName));
 
 
 // Don't modify the following line, it generates a random number between 1 and 3
