@@ -9,8 +9,8 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-function sayHello(x){
-    return("Hello, " + x + "!");
+function sayHello(name){
+    return("Hello, " + name + "!");
 }
 
 /**
