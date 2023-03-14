@@ -159,7 +159,7 @@ alert("Your total today will be " + discount);
  */
 if (confirm("Would you like to enter a number?")) {
     var userNum = +prompt("Enter number: ");
-    if(userNum * 0 === 0) {
+    if(userNum * 0 === 0) { //checks if the number is not text
         if (userNum % 2 === 0)
             alert("Your number is even");
         else
