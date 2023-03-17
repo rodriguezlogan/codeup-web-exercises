@@ -18,7 +18,13 @@ for(var i = 1; i <= 10; i++){
     console.log(random + ' is odd')
 }
 
-// leaving room for exercise 4
+for(var i = 1; i < 10; i++){
+    var bucket = '';
+    for(var k = 0; k<i; k++){
+        bucket += i;
+    }
+    console.log(bucket);
+}
 
 for(var i = 100; i>0; i-=5){
     console.log(i);
