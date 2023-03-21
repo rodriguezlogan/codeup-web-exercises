@@ -16,6 +16,8 @@
     person.firstName = "Logan";
     person.lastName = "Rodriguez";
 
+    console.log(person.firstName);
+    console.log(person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -27,9 +29,10 @@
      */
 
     person.sayHello = function (){
-        console.log("Hello from " + person.firstName + " " + person.lastName)
+        return ("Hello from " + person.firstName + " " + person.lastName + "!")
     };
 
+    console.log(person.sayHello());
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -51,10 +54,11 @@
      ];
 
      shoppers.forEach(function(shopper){
-         if (shopper.amount <= 200)
-             console.log(shopper.name + ' owes $' + shopper.amount)
-         else
-             console.log(shopper.name + ' owes $' + (shopper.amount-(shopper.amount*.12)));
+
+         var total = shopper.amount;
+         if (shopper.amount >= 200)
+          total = shopper.amount-(shopper.amount*.12);
+         console.log(shopper.name + ' owes $' + shopper.amount + ' and with discount $' + total);
     });
 
     /** TODO:
@@ -134,9 +138,7 @@
      */
 
     for(var i = 0; i<books.length; i++){
-        console.log("Book index is " + i);
-        console.log("Book title is " + books[i].title);
-        console.log("Book author is " + books[i].author.firstName + " " + books[i].author.lastName);
+        showBookInfo(books[i]);
     }
 
     /**
@@ -150,8 +152,18 @@
      *   `showBookInfo` function.
      */
 
-    function createBook()
+    function createBook(x,y){
+        return{
+            title: x,
+            author: y
+        }
+    }
 
-
+    function showBookInfo(bookObj){
+        console.log("Book # " + (i +1));
+        console.log("Title: " + books[i].title);
+        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+        console.log("---")
+    }
 
 })();
