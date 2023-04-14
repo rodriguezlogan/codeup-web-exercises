@@ -24,15 +24,19 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-
+<button id="btn1">Cool</button>
+<button id="btn2">Dark</button>
+<button id="btn4">RWB</button>
+<button id="btn3">Reset</button>
 <script>
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header');
-
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+        var mh = mainHeader.innerHTML;
+        //
+        // // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        // mainHeader.innerHTML = "JavaScript is Cool";
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
@@ -58,6 +62,33 @@
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs[0].innerText = 'Mission Accomplished!';
+
+        let body = document.querySelector('body');
+
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', function (){
+            mainHeader.innerHTML = "JavaScript is Cool";
+        })
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', function (){
+            body.style.color = 'white';
+            body.style.backgroundColor = 'black';
+            mainHeader.style.color = 'white';
+        })
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', function (){
+            body.style.color = 'black';
+            body.style.backgroundColor = 'white';
+            mainHeader.innerHTML = mh;
+            mainHeader.style.color = 'black';
+        })
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', function (){
+            body.style.backgroundColor = 'red';
+            body.style.color = 'white';
+            mainHeader.style.color = 'blue';
+        })
+
     })();
 </script>
 </body>
