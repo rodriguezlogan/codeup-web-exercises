@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .invisible{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<p>National Parks:</p>
+
+<dl>
+    <dt>Yellowstone National Park</dt>
+    <dd >Nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot.</dd>
+
+    <dt>Grand Canyon National Park:</dt>
+    <dd >Home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history. </dd>
+
+    <dt>Acadia National Park</dt>
+    <dd >A 47,000-acre Atlantic coast recreation area, its landscape is marked by woodland, rocky beaches and glacier-scoured granite peaks such as Cadillac Mountain</dd>
+
+    <dt>Yosemite National Park</dt>
+    <dd >It’s famed for its giant, ancient sequoia trees, and for Tunnel View.</dd>
+
+    <dt>Glacier National Park</dt>
+    <dd >A 1,583-sq.-mi. wilderness area with glacier-carved peaks and valleys running to the Canadian border.</dd>
+
+    <dt>Bryce Canyon National Park</dt>
+    <dd >A sprawling reserve in southern Utah, is known for crimson-colored hoodoos.</dd>
+
+    <dt>Zion National Park</dt>
+    <dd >A southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs.</dd>
+
+    <dt>Arches National Park</dt>
+    <dd >Known as the site of more than 2,000 natural sandstone arches</dd>
+
+    <dt>Grand Teton National Park</dt>
+    <dd >Encompasses the Teton mountain range, the 4,000-meter Grand Teton peak, and the valley known as Jackson Hole.</dd>
+
+    <dt>Rocky Mountain National Park</dt>
+    <dd >Encompasses protected mountains, forests and alpine tundra. It's known for the Trail Ridge Road and the Old Fall River Road.</dd>
+
+</dl>
+
+    <a href="#" id="show">show/hide all facts</a>
+<script src="./js/jquery.js"></script>
+<script>
+    "use strict";
+
+    $('dd').addClass('invisible');
+
+    $('#show').click(function (){
+
+        $('dd').toggleClass('invisible');
+    });
+
+    $('dt').each(function (index){
+        $(this).click(function (){
+            $(this).css('background-color', 'yellow');
+        });
+    });
+
+
+</script>
+</body>
+</html>
