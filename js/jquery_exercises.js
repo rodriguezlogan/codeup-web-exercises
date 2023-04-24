@@ -14,12 +14,30 @@
 // $('h1, p, li').css('background-color', 'yellow');
 // var contents = $('h1').html();
 // alert(contents);
+
+var tfh1 = true;
+var tfp = true;
+function toggle(x){
+    if (x==true)
+        x = false;
+    else
+        x = true;
+    return x;
+}
 $('h1').click(function() {
-    $('h1').css('background-color', 'green');
+    if (tfh1)
+        $('h1').css('background-color', 'green');
+    else
+        $('h1').css('background-color', 'white');
+    tfh1 = toggle(tfh1);
 });
 
 $('p').dblclick(function() {
-    $('p').css('font-size', '18px');
+    if(tfp)
+        $('p').css('font-size', '18px');
+    else
+        $('p').css('font-size', '16px');
+    tfp = toggle(tfp);
 });
 
 $('li').hover(
