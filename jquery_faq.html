@@ -46,6 +46,35 @@
 </dl>
 
     <a href="#" id="show">show/hide all facts</a>
+
+
+
+<h3>Yellow Stone</h3>
+<ul>
+    <li>It encompasses 3,472 square miles (2,221,766 acres) which makes it larger than Rhode Island and Delaware combined.</li>
+    <li>There are more than 10,000 hydrothermal features</li>
+    <li>It's home to more than 500 active geysers</li>
+    <li>There are approximately 1,000 miles of hiking trails in Yellowstone.</li>
+</ul>
+
+<h3>Grand Canyon</h3>
+<ul>
+    <li>The Grand Canyon is bigger than the state of Rhode Island.</li>
+    <li>The Grand Canyon itself can influence the weather.</li>
+    <li>The Grand Canyon was carved over some 6 million years.</li>
+    <li>The most dangerous animal in the park is the rock squirrel.</li>
+</ul>
+
+<h3>Acadia</h3>
+<ul>
+    <li>Acadia is the fifth-smallest national park by land area.</li>
+    <li>Acadia is among the top ten most visited, hosting about 3.3 million people in 2016</li>
+    <li>Acadia National Park includes about 49,000 acres including nearly 13,000 in conservation easements for private lands and 31,000 on Mount Desert Island.</li>
+    <li>The park also includes 2,400 acres on the Schoodic Peninsula and nearby islands, plus 2,900 acres on Isle au Haut.</li>
+</ul>
+
+<button>highlight last</button>
+
 <script src="./js/jquery.js"></script>
 <script>
     "use strict";
@@ -63,6 +92,19 @@
         });
     });
 
+    $('button').click(function (){
+        $('ul').each(function (){
+            $(this).children().last().css('background-color', 'yellow');
+        })
+    });
+
+    $('h3').click(function (){
+        $(this).next().css('font-weight', 'bold');
+    });
+
+    $('li').click(function (){
+       $(this).parent().children().first().css('color', 'blue');
+    });
 
 </script>
 </body>
