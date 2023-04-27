@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+
+  </style>
+</head>
+<body>
+
+
+
+<div id='map' style='width: 100%; height: 600px;'></div>
+<script>
+  // TO MAKE THE MAP APPEAR YOU MUST
+  // ADD YOUR ACCESS TOKEN FROM
+  // https://account.mapbox.com
+  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmlndWV6bG9nYW4iLCJhIjoiY2xneTVjN3ZuMDYycjNlcWc0aTFqMWV3eCJ9.xMhG4VBB1tV8xVpwhXhT6A';
+  const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-98.4946, 29.4252], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+  });
+
+  // const marker = new mapboxgl.Marker()
+  //         .setLngLat([-98.6714, 29.4461])
+  //         .addTo(map);
+  //
+  // const popup = new mapboxgl.Marker()
+  //     .setLngLat([-98.6714, 29.4461])
+  //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Dave's Hot chicken</h1>"))
+  //     .addTo(map);
+  //
+  // const marker2 = new mapboxgl.Marker()
+  //     .setLngLat([-98.486122,29.565178])
+  //     .addTo(map);
+  //
+  // const popup2 = new mapboxgl.Marker()
+  //     .setLngLat([-98.486122,29.565178])
+  //     .setPopup(new mapboxgl.Popup().setHTML("<h1>Max and Louie's</h1>"))
+  //     .addTo(map);
+
+
+  var restaurants = [
+  {
+        name: "Dave's hot chicken",
+        typeFood: "Fried Chicken",
+        myFav: "The Hot Chicken Sandwich",
+        longitude: -98.6714,
+        latitude: 29.4461
+
+  }, {
+        name: "Max and Louie's",
+        typeFood: "Ny Deli",
+        myFav: "French Toast Grilled Cheese",
+        longitude: -98.486122,
+        latitude:  29.565178
+      },
+      {
+        name: "Whataburger",
+        typeFood: "Fast-food",
+        myFav: "Buffalo Chicken Sandwich",
+        longitude: -98.297190,
+        latitude: 29.550730
+      }
+  ]
+    restaurants.forEach(function(restaurant){
+      const mark = new mapboxgl.Marker()
+          .setLngLat([restaurant.longitude,restaurant.latitude])
+          .addTo(map);
+      const popup = new mapboxgl.Popup()
+          .setHTML("<h2>"+ restaurant.name +"</h2> <h5>"+ restaurant.typeFood + "</h5> <p>My favorite: " + restaurant.myFav + "</p>")
+          mark.setPopup(popup)
+  });
+</script>
+
+</body>
+</html>
