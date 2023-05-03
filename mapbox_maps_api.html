@@ -14,11 +14,12 @@
 
 
 <div id='map' style='width: 100%; height: 600px;'></div>
+<script src="js/keys.js"></script>
 <script>
   // TO MAKE THE MAP APPEAR YOU MUST
   // ADD YOUR ACCESS TOKEN FROM
   // https://account.mapbox.com
-  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmlndWV6bG9nYW4iLCJhIjoiY2xneTVjN3ZuMDYycjNlcWc0aTFqMWV3eCJ9.xMhG4VBB1tV8xVpwhXhT6A';
+  mapboxgl.accessToken = MAPBOX;
   const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
