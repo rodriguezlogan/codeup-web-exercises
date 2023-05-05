@@ -15,7 +15,9 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
-<div class="map" id='map' style='width: 100%; height: 600px;'></div>
+<div id="geocoder" class="d-flex"></div>
+
+<div class="map" id='map' style='width: 100%; height: 500px;'></div>
 
 <pre id="coordinates" class="coordinates"></pre>
 
@@ -26,79 +28,11 @@
 
 <div class="weatherInfo d-flex justify-content-evenly mx-2"></div>
 
+
+
 <script src="js/keys.js"></script>
 <script src="js/jquery.js"></script>
 
-<script>
-    var town = document.querySelector('.city');
-    var btn1 = document.getElementById('btn1');
-    var long = 0;
-    var lat = 0;
-
-
-    mapboxgl.accessToken = MAPBOX;
-    const coordinates = document.getElementById('coordinates');
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [long, lat], // starting position [lng, lat]
-        zoom: 3 // starting zoom
-    });
-    map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
-    );
-    const marker = new mapboxgl.Marker({
-        draggable: true
-    })
-        .setLngLat([long, lat])
-        .addTo(map);
-    function onDragEnd() {
-        const lngLat = marker.getLngLat();
-        coordinates.style.display = 'block';
-        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-        long = lngLat.lng;
-        lat = lngLat.lat;
-        weather();
-    }
-
-    marker.on('dragend', onDragEnd);
-
-
-    function weather(){
-        $.get("http://api.openweathermap.org/data/2.5/forecast", {
-            APPID: OPEN_WEATHER_APPID,
-            lat:    lat,
-            lon:   long,
-            units: "imperial"
-        }).done(function(data) {
-            console.log('5 day forecast', data);
-            cards(data);
-        });
-
-    }
-
-    function cards(data){
-        $('.weatherInfo').html("");
-        for (var i = 0; i<data.list.length; i+=8){
-            var dateAndTime = data.list[i].dt_txt.split(" ");
-            $('.weatherInfo').append('<div class="card" style="width: 18rem;">' +
-                '<div class="card-header">Date: ' + dateAndTime[0] +
-                '</div>' +
-                '<ul class="list-group list-group-flush">' +
-                '<li class="list-group-item"> Temperature: ' + data.list[i].main.temp_min + ' / ' + data.list[i].main.temp_max + '</li>' +
-                '<li class="list-group-item"> Humidity: ' + data.list[i].main.humidity + '%</li>' +
-                '<li class="list-group-item"> Wind: ' + data.list[i].wind.speed+ ' MPH </li> ' +
-                '<li class="list-group-item"> Pressure: ' + data.list[i].main.pressure + '</li>' +
-                '</ul>' +
-                '</div>')
-
-        }
-    }
-    weather();
-
-</script>
+<script src="./js/weather_map.js" ></script>
 </body>
 </html>
