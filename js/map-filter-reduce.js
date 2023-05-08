@@ -58,9 +58,9 @@ console.log(longestEmail);
 
 
 const listOfNames = users.reduce((names, user) => {
-    if (names === ''){
+    if (names === 'Your instructors are: '){
         return names + user.name;
     }
     return names + ", " + user.name;
-}, '');
-console.log('Your instructors are: '+listOfNames);
+}, 'Your instructors are: ');
+console.log(listOfNames);
